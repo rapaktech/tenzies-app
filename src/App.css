@@ -1,38 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla');
+@import url('https://fonts.googleapis.com/css2?family=Inter');
+
 .App {
-  text-align: center;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  background: #0B2434;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  grid-gap: 1.0em;
+  background: #F5F5F5;
+  width: 85vw;
+  height: 85vh;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main--title-container {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  width: 50vw;
+  height: 10vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main--title {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25.6px;
+  line-height: 30px;
   display: flex;
-  flex-direction: column;
+  align-self: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #2B283A;
 }
 
-.App-link {
-  color: #61dafb;
+.main--description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.1072px;
+  line-height: 16px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #4A4E74;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main--die-container {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+  grid-gap: 2.0em;
+  width: 40vw;
+  height: 40vh;
+}
+
+.main--die-roller-button {
+  height: 50px;
+  width: 150px;
+  background: #5035FF;
+  box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+  border-radius: 3.81277px;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16.384px;
+  line-height: 19px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.main--die-roller-button:focus {
+  outline: none;
+}
+
+.main--die-roller-button:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
