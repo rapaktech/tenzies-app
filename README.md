@@ -1,5 +1,7 @@
 # Tenzies App
 
+Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
