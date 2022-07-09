@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Tenzies App",
+  "name": "Roll until all dice are the same. Click each die to freeze it at its current value between rolls.",
   "icons": [
     {
       "src": "favicon.ico",

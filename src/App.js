@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import Die from './components/Die';
-import Confetti from 'react-confetti'
+import Confetti from 'react-confetti';
 
 export default function App () {
   function allNewDice () {
