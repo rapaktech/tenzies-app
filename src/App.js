@@ -25,14 +25,11 @@ export default function App () {
   const [tenzies, setTenzies] = React.useState(() => false);
 
   React.useEffect(() => {
-    let state = {
-      value: diceNumbers[0].value,
-    }
-
-    let count = 0;
+    const value = diceNumbers[0].value
+    let count = 0
 
     diceNumbers.map(die => {
-      if (state.value === die.value && die.isHeld === true) count++;
+      if (value === die.value && die.isHeld === true) count++;
       return die;
     })
 
@@ -45,10 +42,10 @@ export default function App () {
   }, [diceNumbers]);
 
   function rollDice (event) {
-    console.log(event.target);
+    console.log(event.target.value);
     if (event.target.value === 'New Game') {
       setTenzies(false);
-      setDiceNumbers(allNewDice());
+      setDiceNumbers(allNewDice())
       return;
     }
     setDiceNumbers(prevState => prevState.map(die => {
@@ -80,7 +77,7 @@ export default function App () {
         <div className='main--die-container'>
           {dice}
         </div>
-        <button onClick={rollDice} className='main--die-roller-button'>{tenzies ? 'New Game' : 'Roll'}</button>
+        <button onClick={rollDice} className='main--die-roller-button' value={tenzies ? 'New Game' : 'Roll'}>{tenzies ? 'New Game' : 'Roll'}</button>
       </main>
     </div>
   );
