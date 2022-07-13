@@ -21,6 +21,20 @@
   border-radius: 10px;
 }
 
+.main--counter {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.1072px;
+  line-height: 16px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #4A4E74;
+}
+
 .main--title-container {
   display: grid;
   place-items: center;

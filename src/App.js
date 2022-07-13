@@ -22,7 +22,40 @@ export default function App () {
   }
 
   const [diceNumbers, setDiceNumbers] = React.useState(() => allNewDice());
+  const [numberOfRolls, setNumberOfRolls] = React.useState(() => 0);
+  const [isActive, setIsActive] = React.useState(() => false);
+  const [isPaused, setIsPaused] = React.useState(() => false);
+  const [time, setTime] = React.useState(() => 0);
+  const [bestTime, setBestTime] = React.useState(() => 0);
+  
+  React.useEffect(() => {
+    setBestTime(Number(localStorage.getItem('tenzies-best-time')));
+    setIsActive(true);
+    let interval = null;
+  
+    if (isActive && !isPaused) {
+      interval = setInterval(() => {
+        setTime((time) => time + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isActive, isPaused]);
+
   const [tenzies, setTenzies] = React.useState(() => false);
+
+  React.useEffect(() => {
+    if (tenzies) {
+      setIsPaused(true);
+      if (bestTime > time) {
+        localStorage.setItem('tenzies-best-time', String(time));
+        setBestTime(Number(localStorage.getItem('tenzies-best-time')));
+      }
+    }
+  }, [tenzies, bestTime, time]);
 
   React.useEffect(() => {
     const value = diceNumbers[0].value;
@@ -43,9 +76,14 @@ export default function App () {
   function rollDice (event) {
     if (event.target.value === 'New Game') {
       setTenzies(false);
+      setIsPaused(false);
+      setNumberOfRolls(0);
+      setTime(0);
       setDiceNumbers(allNewDice());
       return;
     }
+
+    setNumberOfRolls(prevState => prevState + 1);
     setDiceNumbers(prevState => prevState.map(die => {
       return die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) }
     }));
@@ -63,6 +101,8 @@ export default function App () {
   return (
     <div className="App">
       <main className='main'>
+        <p className='main--counter'>Number of rolls: {numberOfRolls}</p>
+        <p className='main--counter'>Time taken: {time}, Best time: {bestTime}</p>
         {tenzies && <Confetti />}
         <div className='main--title-container'>
           <div className='main--title'>
